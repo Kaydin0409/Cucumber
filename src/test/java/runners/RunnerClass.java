@@ -16,11 +16,13 @@ import org.junit.runner.RunWith;
             dryRun = false,
             monochrome=true,
             tags= "@sprint29",
-            plugin = {"pretty", "html:target/cucumber.html"}
+            plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json", "rerun:target/failed.txt"}
         //monochrome cleans your console output for Cucumber test if it has irrelevant or unreadable character in it
         //recommended to always keep it true
         //dryRun will give us just the steps that need to be implemented
         //when you use pretty keyword under plugins it shows all the steps executed in console
+
+        //rerun plugin is going to capture all the scenarios that failed during execution
 
 )
 public class RunnerClass {

@@ -5,3 +5,22 @@
     *Method for screenshots available in Common Methods
     *It will be used for every scenario
     *For screenshots in Cucumber it accepts only array of Byte
+    *We are passing the path of saving screenshots from constants class
+    *We are passing the FileName from scenario.getName() (shown in Hooks)
+    *Scenario class in cucumber holds complete information of execution
+    *We are using getTimeStamp() method to get the time in specific format so we can add it in the name of the screenshot
+
+    *We want to generate a report that can have a screenshot in it
+    *Add plug-in to pom.xml
+
+    *Rerun plugin we use this plugin in runner class to capture the details of failed test cases during execution
+     and then we use failed runner class to execute only failed test cases
+
+     In intellij clean under maven project deletes target folder
+
+        *For cloud executions*
+     To run the code from cmd/terminal: open up explorer to project, then enter cmd in file path to open terminal
+
+     mvn clean = to clean the project
+     mvn test = to execute the scripts
+     mvn clean verify -Dcucumber.filter.tags="@tagname" to override the tag from cmd (Don't need to change tags in intelliJ runner class)

@@ -22,7 +22,7 @@ public class LoginSteps extends CommonMethods {
         driver = new ChromeDriver();
         driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login"); //don't hard code anything!  will change later
         Thread.sleep(2000);*/
-        openBrowserAndLaunchApplication();
+        //openBrowserAndLaunchApplication();
     }
     @When("user enters valid admin username and password")
     public void user_enters_valid_admin_username_and_password() {

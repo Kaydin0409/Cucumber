@@ -7,7 +7,7 @@ Feature: Login feature
     And user clicks on login button
     Then admin user is successfully logged in
 
-   @smoke
+   @smoke @sprint29
   Scenario: Valid ess login
     Given user is navigated to HRMS application
     When user enters ess username and password
