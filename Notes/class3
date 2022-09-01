@@ -1,0 +1,22 @@
+Recap:
+    *Architecture of Framework
+        1) 1st package of Framework: Utils --> to keep all the utilities of our project, such as constants, config reader,
+           common methods, etc. to reuse them
+        2) Steps package --> all step definitions can be found under this package from the gherkin steps we used in
+           feature file
+        3) Pages package --> allows us to implement POM (Page Object Model). Implement object repository and functions
+           Must use Selenium PageFactory to initialize all the elements through a Constructor
+        4) Runners package --> we use runner class to execute all test cases
+
+
+For pre condition and post condition in cucumber we have 2 annotations that are called Hooks:
+    1) @Before
+    2) @After
+    *Hooks should always be mentioned under steps package
+
+    ==>Background vs hooks
+    **Hooks are applicable to all feature files
+    **Background is applicable to just one feature file\
+
+    Hooks execute first then background executes then scenario executes and in the
+    end hooks executes again as post condition

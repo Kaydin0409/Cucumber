@@ -1,0 +1,4 @@
+**Recap**
+    -->Data driven testing: When we execute our script against multiple sets of data
+    -->Hybrid framework supports Behavior-Driven Development and Data Driven Testing
+    -->Do not pass hard-coded data in your framework

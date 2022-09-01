@@ -1,0 +1,26 @@
+Recap:
+    ==>Examples Table: Hooks and Background work multiple times, depending on number of data sets in scenario
+    ==>Data Table: Hooks only execute one time, background only time. We use data table to achieve data driven testing
+
+    2 Types of data tables:
+    *With header: List<Maps<>> because key, value pairs exist: key is header, value is other cell values
+    *Without headers: List<> only
+
+    Excel File/Spreadsheets: Another form of data-driven testing
+
+    Homework: modify the details of the employee after adding it in the HRMS
+
+     <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M7</version>
+                    <configuration>
+                    //we use includes tag to run our runner classes
+                    //** means src folder/* means runner package and then file name
+                        <includes>
+                            <include>**/*RunnerClass.java</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+
+

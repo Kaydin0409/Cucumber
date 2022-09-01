@@ -1,0 +1,26 @@
+*Recap*
+    -->Cucumber options in runner class:
+        **dry run: to quickly get the step definitions
+            -Whenever we write a new scenario in feature file, we must set dryRun to true for step definitions and
+            then put this definition under steps package.
+           -After writing the code in it, set dryRun to false, and execute the script
+        **monochrome: removes irrelevant information
+            -Whenever we set monochrome to true, it removes irrelevant information or unreadable characters from console
+             while executing cucumber test cases
+
+    -->Hooks: for entire project
+        **pre-condition: @Before
+        **post-condition: @After
+            -We must keep Hooks class under steps package
+
+    -->Background: common steps in a feature file until flow is not broken
+        -it is applicable only to 1 feature file, every file can have a different background
+
+    -->Tags: to categorize our scenarios for execution
+        -can have multiple tags for scenarios --use 'and' or 'or' operators
+        -smoke, regression, sprint#, etc.
+        -tags can also be used for Feature, but more commonly used for scenarios
+
+    -->Data Driven Testing: When we execute our script against multiple sets of data
+
+

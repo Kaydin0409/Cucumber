@@ -1,0 +1,18 @@
+Recap:
+    *Cucumber: it is a tool that supports Behavior-driven development (BDD)
+    *Gherkin language is used to write BDD
+    *Keywords of Gherkin: Feature, Scenario, Given, When, Then, And
+
+What is Framework:
+    *It is an organized structure which allows us to write clean and maintainable code
+    *Functionality is key.
+
+    Features File --> declare the steps inside
+    Runner Class --> allows us to execute all the features/scenarios desired at same time
+    Steps (created under java since it contains java code) --> contains step definitions
+
+POM:
+    *Page Object Model is a design pattern in which we create object repository
+
+
+    Cross-browser Testing: Testing across multiple browsers (Chrome, Safari, Edge, Firefox)
