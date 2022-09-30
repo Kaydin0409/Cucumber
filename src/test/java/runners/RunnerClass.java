@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
             glue = "steps",
             dryRun = false,
             monochrome=true,
-            tags= "@sprint29",
+            tags= "@db",
             plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json", "rerun:target/failed.txt"}
         //monochrome cleans your console output for Cucumber test if it has irrelevant or unreadable character in it
         //recommended to always keep it true

@@ -1,15 +1,13 @@
 package steps;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.EmployeeInformationPage;
-import utils.CommonMethods;
-import utils.Constants;
-import utils.ExcelReader;
+import utils.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +15,10 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
+    String firstNameUI;
+    String middleName;
+    String lastNameUI;
+    String empIDUI;
     @When("user clicks on add employee option")
     public void user_clicks_on_add_employee_option() {
         click(dash.addEmployeeOption);
@@ -40,6 +42,9 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @When("user enters {string}, {string}, and {string}")
     public void user_enters_and(String firstName, String middleName, String lastName) {
+        this.firstNameUI =firstName;
+        this.middleName=middleName;
+        this.lastNameUI =lastName;
         sendText(addEmployeePage.firstName, firstName);
         sendText(addEmployeePage.middleName, middleName);
         sendText(addEmployeePage.lastName, lastName);
@@ -139,4 +144,21 @@ public class AddEmployeeSteps extends CommonMethods {
         }
     }
 
+    @And("user grabs employee ID")
+    public void userGrabsEmployeeID() {
+        empIDUI =addEmployeePage.empIdLoc.getAttribute("value");
+
+    }
+
+    @Then("fetch the data from backend and verify employee has been added")
+    public void fetchTheDataFromBackendAndVerifyEmployeeHasBeenAdded() {
+        String query= DBQueries.FETCH_FNAME_LNAME+ empIDUI +"'";
+        List<Map<String,String>> dbData= DbUtils.fetchDbData(query);
+        //from first row we are getting employee firstname column
+        String firstNamefromDB=dbData.get(0).get("emp_firstname");
+        String lastNamefromDB=dbData.get(0).get("emp_lastname");
+
+        Assert.assertEquals(firstNameUI,firstNamefromDB);
+        Assert.assertEquals(lastNameUI,lastNamefromDB);
+    }
 }
