@@ -20,7 +20,7 @@ public class HardCodedExamples {
     public static String employee_id;
     @Test
     //to create regular/normal employee
-    public void createEmployee(){
+    public void acreateEmployee(){
         //prepare the request -- POST
         RequestSpecification preparedRequest = given().header("Content-Type", "application/json").header("Authorization", token).body("{\n" +
                 "  \"emp_firstname\": \"Oguz\",\n" +
@@ -53,7 +53,7 @@ public class HardCodedExamples {
     }
 
     @Test
-    public void getCreatedEmployee(){
+    public void bgetCreatedEmployee(){
         //prepare the Request
         RequestSpecification preparedRequest = given().header("Content-Type", "application/json")
                                                 .header("Authorization", token).queryParam("employee_id", employee_id);
@@ -65,7 +65,7 @@ public class HardCodedExamples {
     }
 
     @Test
-    public void updateEmployee(){
+    public void cupdateEmployee(){
         RequestSpecification preparedRequest = given().header("Content-Type", "application/json")
                 .header("Authorization", token).body("{\n" +
                         "  \"employee_id\": \""+employee_id+"\",\n" +
@@ -83,5 +83,18 @@ public class HardCodedExamples {
 
         response.then().assertThat().body("Message", equalTo("Employee record Updated"));
         response.then().assertThat().statusCode(200);
+    }
+
+    @Test
+    public void dGetUpdatedEmployee(){
+        RequestSpecification preparedRequest = given().header("Content-Type", "application/json")
+                .header("Authorization", token).queryParam("employee_id",employee_id);
+
+        Response response = preparedRequest.when().get("/getOneEmployee.php");
+        response.prettyPrint();
+
+        response.then().assertThat().statusCode(200);
+        response.then().assertThat().body("employee.employee_id", equalTo(employee_id));
+        response.then().assertThat().body("employee.emp_firstname", equalTo("Baris"));
     }
 }
